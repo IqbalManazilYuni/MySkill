@@ -1,0 +1,18 @@
+//soal nomor 1
+SELECT product_name,SUM(quantity) FROM sales
+WHERE purchase_date BETWEEN '2022-05-02' AND '2022-05-23' AND (product_name ='Mangga' OR product_name='Apel')
+GROUP BY product_name
+
+//soal nomor 2
+SELECT CONCAT(first_name,' ',last_name),store_city_id FROM employees
+WHERE store_city_id IN (SELECT store_city_id FROM region WHERE region='Bali' OR region='Yogyakarta')
+
+//soal nomor 3
+SELECT SUM(quantity*price_per_kg) AS pendapatan,
+ (SELECT 
+  (CASE
+   WHEN region IN ('Sumatera','Sulawesi','Bali','Kalimantan') THEN 'LUAR JAWA'
+   ELSE 'JAWA' END)FROM region
+  WHERE sales.store_city_id = region.store_city_id
+  )Kategori FROM sales
+GROUP BY kategori

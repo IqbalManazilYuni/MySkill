@@ -1,0 +1,18 @@
+//soal nomor 1 A
+select * from sales
+where store_city_id IN(3,4,5) AND price_per_kg > 11000
+
+//soal nomor 1 B
+select * from sales
+where purchase_date > '2022-05-01'
+
+//soal nomor 1 C
+select * from sales
+where product_name='Mangga' AND store_city_id NOT IN (1,6,7)
+
+//soal nomor 2 A
+SELECT employee_id,store_city_id,first_name,last_name,email,department,hire_date,salary_2021 FROM employees
+
+//soal nomor 2 B
+SELECT CONCAT(first_name,' ',last_name) AS Employees_name,salary_2022 FROM employees
+WHERE salary_2022>5000 AND store_city_id IN(3,4,7)
